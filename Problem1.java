@@ -4,8 +4,8 @@
 // Any problem you faced while coding this : No
 // Three line explanation of solution in plain english:
 // 1. We perform an inorder traversal of the binary search tree (BST) to get the elements in sorted order.
-// 2. We maintain a count of the elements visited so far and check if it matches k.
-// 3. When the count matches k, we store the value of the current node as the result and return it.
+// 2. We maintain a count initialied to k  and decrement it once we visited the nodes.
+// 3. When the count becomes 0, we store the value of the current node as the result and return it.
 
 
 
