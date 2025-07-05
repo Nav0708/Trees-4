@@ -29,26 +29,24 @@ class Solution {
     int count=0;
     int res=-1;
     public int kthSmallest(TreeNode root, int k) {
-        findkthSmallest(root,k);
+        count=k;
+        findkthSmallest(root);
         return res;
     }
-    public void findkthSmallest(TreeNode root,int k){
+    public void findkthSmallest(TreeNode root){
         if(root==null){
             return;
         }
         //inorder traversal of BST gives the elements in sorted order
         //so we traverse the left subtree first, then the root, and then the right subtree
-        findkthSmallest(root.left,k);
-        //increment the count of elements visited so far
-        count++;
-        //if the count is equal to k, then we have found the kth smallest element
-        if(count==k){
+        findkthSmallest(root.left);
+        //decrement the count of elements visited so far
+        count--;
+        //if the count is equal to 0, then we have found the kth smallest element
+        if(count==0){
             res=root.val;
         }
-        //if the count is less than k, then we continue to the right subtree
-        //this is because we have not yet found the kth smallest element
-        if(count<k){
-        findkthSmallest(root.right,k);
-        }
+        //inorder traversal continues to the right subtree
+        findkthSmallest(root.right);
     }
 }
